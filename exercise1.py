@@ -12,18 +12,21 @@ __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
 
 
-def pig_latinify(word):
-    """
-    Describe your function
+# TODO(nchah): We can get rid of this part since it's duplicated below
+# def pig_latinify(word):
+#     """
+#     Describe your function
+#
+#     :param :
+#     :return:
+#     :raises:
+#
+#     """
+#     result = ""
+#
+#     return result
 
-    :param :
-    :return:
-    :raises:
 
-    """
-    result = ""
-
-    return result
     # helper functions
 def is_vowel(c):
     return c.lower() in "'a','e','i','o','u'"
