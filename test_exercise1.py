@@ -24,4 +24,19 @@ def test_basic():
     assert pig_latinify("is") == "isyay"
     assert pig_latinify("apple") == "appleyay"
 
+    # one consonant
+    assert pig_latinify("home") == "omehay"
+
+    # two consonants
+    assert pig_latinify("children") == "ildrenchay"
+
+    # three consonants
+    assert pig_latinify("screw") == "ewscray"
+
+    # consonant uppercase
+    assert pig_latinify("Car") == "arCay"
+
+    # one vowel
+    assert pig_latinify("apple") == "appleyay"
+    assert pig_latinify("Aaron") == "Aaronyay"
 

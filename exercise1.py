@@ -31,8 +31,11 @@ __license__ = "MIT License"
 def is_vowel(c):
     return c.lower() in "'a','e','i','o','u'"
 
-# get position of the first vowel
+
 def position_of_vowel(s):
+    """
+    get position of the first vowel
+    """
     for i in range(len(s)):
         if is_vowel(s[i]):
             return i
@@ -43,27 +46,20 @@ def pig_latinify(word):
     if len(word) > 0 and word.isalpha():
         first = word[0]
         if is_vowel(first):     # starts with a vowel
-            print str(word) + "way"
+            pig_latined_word = str(word) + "yay"
         else:                   # starts with non-vowel
             cut = position_of_vowel(word) # where to cut the word
             if cut > 0:           # "street"-->"eet+str+ay"
-                print word[cut:] + word[:cut] + "ay"
+                pig_latined_word = word[cut:] + word[:cut] + "ay"
             else:                 # no vowel found
-                print word + "ay"
+                pig_latined_word = word + "ay"
     elif len(word) > 0 and not word.isalpha():
         print 'Only letters allowed!'
     else:
         print 'empty'
 
-
-### tests
-pig_latinify("home")  # one consonant
-pig_latinify("children")  # two consonants
-pig_latinify("screw")   # three consonants
-pig_latinify("Car")   # consonant uppercase
-pig_latinify("apple")     # one vowel
-pig_latinify("Aaron")  # two vowels + uppercase voewl
+    return pig_latined_word
 
 
 # ask user to type a word
-pig_latinify(raw_input('Type a word please: '))
+# pig_latinify(raw_input('Type a word please: '))
