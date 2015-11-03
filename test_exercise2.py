@@ -18,11 +18,27 @@ def test_find_basic():
     """
     Test find function.
     """
+    # Basic strings
     assert find("This is an ex-parrot", "parrot", 0, 20) == 14
 
+    # DNA sequence matching
+    assert find("TCGATCGAACTG", "ACTG", 0, 12) == 8
+
+    # find() returns the lowest index only
+    assert find("This is the first ACTG string. "
+                "This ACTG string should not be returned.", 0, 71) == 18
 
 def test_multi_find_basic():
     """
     Test multi_find function.
     """
+    # Basic string with multiple sub-strings
     assert multi_find("Ni! Ni! Ni! Ni!", "Ni", 0, 20) == "0,4,8,12"
+
+    # DNA sequence matching, there are 3 ACTG sub-strings
+    assert multi_find("TCGAACTGACTGTCGAACTG", "ACTG", 0, 20) == "4,8,16"
+
+    # multi_find() returns all sib-string instances
+    assert multi_find("This is the first ACTG string. \
+                This ACTG string should not be returned.", "ACTG", 0, 71) == "18,36"
+
