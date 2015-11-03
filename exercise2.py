@@ -21,8 +21,20 @@ def find(input_string, substring, start, end):
     :raises:
 
     """
+    # Convert to int type, in case of floats
+    start, end = int(start), int(end)
+
+    # This is the range that substring will search over
+    searchable_string = input_string[start:end]
+
+    for char_index in range(0, len(searchable_string)):
+        # Search the searchable_string in chunks of len equal to substring
+        if substring in searchable_string[char_index:char_index + len(substring)]:
+             return char_index
+
     return -1
 
+print find("This is an ex-parrot parrot", "parrot", 0, 40)  # >>> 14
 
 def multi_find(input_string, substring, start, end):
     """
@@ -35,5 +47,22 @@ def multi_find(input_string, substring, start, end):
     """
     result = ""
 
+    # Convert to int type, in case of floats
+    start, end = int(start), int(end)
+
+    # This is the range that substring will search over
+    searchable_string = input_string[start:end]
+
+    for char_index in range(0, len(searchable_string)):
+        # Search the searchable_string in chunks of len equal to substring
+        if substring in searchable_string[char_index:char_index + len(substring)]:
+            # First entry in the string should not have a comma
+            if len(result) > 0:
+                result += "," + str(char_index)
+            else:
+                result += str(char_index)
+
     return result
+
+print multi_find("Ni! Ni! Ni! Ni!", "Ni", 0, 20)  # >>> 0,4,8,12
 
