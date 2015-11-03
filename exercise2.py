@@ -34,8 +34,7 @@ def find(input_string, substring, start, end):
 
     return -1
 
-# print find("This is an ex-parrot parrot", "parrot", 0, 40)  # >>> 14
-# print find("TCGATCGAACTG", "ACTG", 0, 12)
+
 
 def multi_find(input_string, substring, start, end):
     """
@@ -65,5 +64,4 @@ def multi_find(input_string, substring, start, end):
 
     return result
 
-# print multi_find("Ni! Ni! Ni! Ni!", "Ni", 0, 20)  # >>> 0,4,8,12
-# print multi_find("TCGAACTGACTGTCGAACTG", "ACTG", 0, 20)
+
