@@ -20,6 +20,13 @@ MANAGERS = [["Number", "Surname", "Age"],
             [9297, "O'Malley", 56],
             [7432, "O'Malley", 39],
             [9824, "Darkes", 38]]
+STUDENTS = [["Number", "Surname", "Age"],
+            [7274, "Robinson", 37],
+            [1234, "Test student", 56],
+            [7890, "New student", 01]]
+BAD_SCHEMA = [["Number", "Surname", "First Name", "Age"],
+              [7274, "Robinson", "Tom", 37],
+              [7432, "O'Malley", "Bob", 39]]
 
 class MismatchedAttributesException(Exception):
     """
@@ -102,7 +109,6 @@ def difference(table1, table2):
     :raises: MismatchedAttributesException:
         if tables t1 and t2 don't have the same attributes
     """
-    # TODO(@SLiana)
     new_table = []
 
     if table1[0] == table2[0]:
@@ -140,4 +146,3 @@ def remove_duplicates(l):
     return result
 
 
-# TODO(@SLiana)
