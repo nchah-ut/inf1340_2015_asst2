@@ -12,21 +12,6 @@ __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
 
 
-# TODO(nchah): We can get rid of this part since it's duplicated below
-# def pig_latinify(word):
-#     """
-#     Describe your function
-#
-#     :param :
-#     :return:
-#     :raises:
-#
-#     """
-#     result = ""
-#
-#     return result
-
-
     # helper functions
 def is_vowel(c):
     return c.lower() in "'a','e','i','o','u'"
@@ -43,23 +28,30 @@ def position_of_vowel(s):
 
 
 def pig_latinify(word):
+    """
+    Returns Pig Latin form of an English word
+
+    :param word: any English language string
+    :return: string converted to Pig Latin form
+    :raises: None
+    """
     if len(word) > 0 and word.isalpha():
         first = word[0]
         if is_vowel(first):     # starts with a vowel
-            pig_latined_word = str(word) + "yay"
+            result = str(word) + "yay"
         else:                   # starts with non-vowel
             cut = position_of_vowel(word) # where to cut the word
             if cut > 0:           # "street"-->"eet+str+ay"
-                pig_latined_word = word[cut:] + word[:cut] + "ay"
+                result = word[cut:] + word[:cut] + "ay"
             else:                 # no vowel found
-                pig_latined_word = word + "ay"
+                result = word + "ay"
     elif len(word) > 0 and not word.isalpha():
         print 'Only letters allowed!'
     else:
         print 'empty'
 
-    return pig_latined_word
+    return result
 
 
-# ask user to type a word
-# pig_latinify(raw_input('Type a word please: '))
+# ask user to type a word  TODO: remove before submission
+print pig_latinify(raw_input('Type a word please: '))
