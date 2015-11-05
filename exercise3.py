@@ -11,7 +11,15 @@ __author__ = 'Susan Sim'
 __email__ = "ses@drsusansim.org"
 __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
+GRADUATES = [["Number", "Surname", "Age"],
+             [7274, "Robinson", 37],
+             [7432, "O'Malley", 39],
+             [9824, "Darkes", 38]]
 
+MANAGERS = [["Number", "Surname", "Age"],
+            [9297, "O'Malley", 56],
+            [7432, "O'Malley", 39],
+            [9824, "Darkes", 38]]
 
 class MismatchedAttributesException(Exception):
     """
@@ -103,19 +111,14 @@ def difference(table1, table2):
 
         # Matching table1 rows to table2
         for t1_row in table1[1:]:
-            if t1_row not in table2 or t1_row not in new_table:
+            if t1_row not in table2:
                 new_table.append(t1_row)
 
     else:
         raise MismatchedAttributesException("Bad Schema.")
 
     return new_table
-    
-    dataDiff = []
 
-
-
-    return dataDiff
 
 
 #####################
