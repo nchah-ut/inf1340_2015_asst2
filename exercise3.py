@@ -94,11 +94,12 @@ def difference(table1, table2):
     :raises: MismatchedAttributesException:
         if tables t1 and t2 don't have the same attributes
     """
-    new_table = []
+    # TODO(@SLiana)
+    dataDiff = []
 
 
 
-    return new_table
+    return dataDiff
 
 
 #####################
@@ -120,7 +121,7 @@ def remove_duplicates(l):
     return result
 
 
-
+# TODO(@SLiana)
 # a version suggestion for Union function
 GRADUATES = [["Number", "Surname", "Age"],
              [7274, "Robinson", 37],
@@ -166,7 +167,7 @@ def unique(table1, table2):
             j += 1
         if ( match != cols ):
             dataUnion.insert(len(dataUnion), table1[rowsI])
-            
+
         rowsI += 1
         
 
