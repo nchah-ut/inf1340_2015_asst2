@@ -14,12 +14,14 @@ __license__ = "MIT License"
 
 def find(input_string, substring, start, end):
     """
-    Describe your function
+    Finds the first occurrence of substring in a larger string
 
-    :param :
-    :return:
-    :raises:
-
+    :param input_string: longer string that is searched for matches
+    :param substring: string that functions attempts to find instances of in input_string
+    :param start: int index value where search will start
+    :param end: int index value where search will end
+    :return: int value of the lowest index, -1 otherwise
+    :raises: None
     """
     # Convert to int type, in case of floats
     start, end = int(start), int(end)
@@ -38,12 +40,14 @@ def find(input_string, substring, start, end):
 
 def multi_find(input_string, substring, start, end):
     """
-    Describe your function
+    Finds all occurrences of a substring in a larger string
 
-    :param :
-    :return:
-    :raises:
-
+    :param input_string: longer string that is searched for matches
+    :param substring: string that functions attempts to find instances of in input_string
+    :param start: int index value where search will start
+    :param end: int index value where search will end
+    :return: int value of the lowest index, -1 otherwise
+    :raises: None
     """
     result = ""
 
