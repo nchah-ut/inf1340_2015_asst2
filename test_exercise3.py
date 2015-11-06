@@ -41,8 +41,8 @@ BAD_SCHEMA = [["Number", "Surname", "First Name", "Age"],
 # HELPER FUNCTIONS ##
 #####################
 def is_equal(t1, t2):
-    return set(map(tuple, t1)) == set(map(tuple, t2))
-
+    # return set(map(tuple, t1)) == set(map(tuple, t2))
+    return t1.sort() == t2.sort()  # Professor Sim's update
 
 ###################
 # TEST FUNCTIONS ##
@@ -113,6 +113,10 @@ def test_intersection():
 
     assert is_equal(result3, intersection(BAD_SCHEMA, BAD_SCHEMA))
 
+    # If no common rows exist
+    result4 = []
+
+    assert is_equal(result4, intersection(MANAGERS, STUDENTS))
 
     # Errors
     # Exception handling - testing schemas not matching
@@ -143,10 +147,15 @@ def test_difference():
     # BAD_SCHEMA difference with itself; works since schemas do match.
     # Result only has the header because there are
     # no "unique rows that appear in the first table but not the second."
-    result3 = [["Number", "Surname", "First Name", "Age"]]
+    # result3 = [["Number", "Surname", "First Name", "Age"]]
+    result3 = []  # Updated 2015-11-06
 
     assert is_equal(result3, difference(BAD_SCHEMA, BAD_SCHEMA))
 
+    # If no common rows exist
+    result4 = []
+
+    assert is_equal(result4, difference(MANAGERS, STUDENTS))
 
     # Errors
     # Exception handling - testing schemas not matching

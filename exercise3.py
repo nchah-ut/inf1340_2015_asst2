@@ -11,22 +11,7 @@ __author__ = 'Susan Sim'
 __email__ = "ses@drsusansim.org"
 __copyright__ = "2015 Susan Sim"
 __license__ = "MIT License"
-GRADUATES = [["Number", "Surname", "Age"],
-             [7274, "Robinson", 37],
-             [7432, "O'Malley", 39],
-             [9824, "Darkes", 38]]
 
-MANAGERS = [["Number", "Surname", "Age"],
-            [9297, "O'Malley", 56],
-            [7432, "O'Malley", 39],
-            [9824, "Darkes", 38]]
-STUDENTS = [["Number", "Surname", "Age"],
-            [7274, "Robinson", 37],
-            [1234, "Test student", 56],
-            [7890, "New student", 01]]
-BAD_SCHEMA = [["Number", "Surname", "First Name", "Age"],
-              [7274, "Robinson", "Tom", 37],
-              [7432, "O'Malley", "Bob", 39]]
 
 class MismatchedAttributesException(Exception):
     """
@@ -65,6 +50,11 @@ def union(table1, table2):
     else:
         raise MismatchedAttributesException("Bad Schema.")
 
+    # 2015-11-06 update: if no common rows, should return nothing
+    if len(new_table) < 2:
+        new_table = []
+        # return None  # This is not compatible with the updated test "t1.sort() == t2.sort()"
+
     return new_table
 
 
@@ -96,6 +86,11 @@ def intersection(table1, table2):
     else:
         raise MismatchedAttributesException("Bad Schema.")
 
+    # 2015-11-06 update: if no common rows, should return nothing
+    if len(new_table) < 2:
+        new_table = []
+        # return None  # This is not compatible with the updated test "t1.sort() == t2.sort()"
+
     return new_table
 
 
@@ -123,8 +118,12 @@ def difference(table1, table2):
     else:
         raise MismatchedAttributesException("Bad Schema.")
 
-    return new_table
+    # 2015-11-06 update: if no common rows, should return nothing
+    if len(new_table) < 2:
+        new_table = []
+        # return None  # This is not compatible with the updated test "t1.sort() == t2.sort()"
 
+    return new_table
 
 
 #####################
