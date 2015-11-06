@@ -24,7 +24,7 @@ def position_of_vowel(s):
     for i in range(len(s)):
         if is_vowel(s[i]):
             return i
-    return -1 # no vowel at all
+    return -1  # no vowel at all
 
 
 def pig_latinify(word):
@@ -35,6 +35,7 @@ def pig_latinify(word):
     :return: string converted to Pig Latin form
     :raises: None
     """
+    result = ""
     if len(word) > 0 and word.isalpha():
         first = word[0]
         if is_vowel(first):     # starts with a vowel
@@ -45,13 +46,9 @@ def pig_latinify(word):
                 result = word[cut:] + word[:cut] + "ay"
             else:                 # no vowel found
                 result = word + "ay"
-    elif len(word) > 0 and not word.isalpha():
-        print 'Only letters allowed!'
     else:
-        print 'empty'
+        result = 'Only letters allowed!'
 
     return result
 
 
-# ask user to type a word  TODO: remove before submission
-print pig_latinify(raw_input('Type a word please: '))

@@ -41,11 +41,9 @@ def test_basic():
     assert pig_latinify("Aaron") == "Aaronyay"
 
     # numbers
-    assert pig_latinify("123") == "Only letters allowed!"
-    
+    assert pig_latinify("123") == 'Only letters allowed!'
+
     # blank space
     assert pig_latinify("   ") == "Only letters allowed!"
-    
-    # only consonants
-    assert pig_latinify("123") == "Only letters allowed!"
+
 
