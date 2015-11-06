@@ -36,6 +36,8 @@ BAD_SCHEMA = [["Number", "Surname", "First Name", "Age"],
               [7274, "Robinson", "Tom", 37],
               [7432, "O'Malley", "Bob", 39]]
 
+BLANK = [["Number", "Surname", "First Name", "Age"]]
+
 
 #####################
 # HELPER FUNCTIONS ##
@@ -78,6 +80,9 @@ def test_union():
 
     assert is_equal(result3, union(BAD_SCHEMA, BAD_SCHEMA))
 
+    # Not any union
+    assert union(BLANK, BLANK) == None
+
 
     # Errors
     # Exception handling - testing schemas not matching
@@ -116,7 +121,8 @@ def test_intersection():
     # If no common rows exist
     result4 = []
 
-    assert is_equal(result4, intersection(MANAGERS, STUDENTS))
+    # assert is_equal(result4, intersection(MANAGERS, STUDENTS))
+    assert intersection(MANAGERS, STUDENTS) == None
 
     # Errors
     # Exception handling - testing schemas not matching
@@ -144,18 +150,15 @@ def test_difference():
 
     assert is_equal(result2, difference(GRADUATES, STUDENTS))
 
+    # If no common rows exist
     # BAD_SCHEMA difference with itself; works since schemas do match.
     # Result only has the header because there are
     # no "unique rows that appear in the first table but not the second."
-    # result3 = [["Number", "Surname", "First Name", "Age"]]
-    result3 = []  # Updated 2015-11-06
+    # result3 = [["Number", "Surname", "First Name", "Age"]]  # Updated 2015-11-06
 
-    assert is_equal(result3, difference(BAD_SCHEMA, BAD_SCHEMA))
+    # assert is_equal(result3, difference(BAD_SCHEMA, BAD_SCHEMA))  # Updated 2015-11-06
+    assert difference(BAD_SCHEMA, BAD_SCHEMA) == None
 
-    # If no common rows exist
-    result4 = []
-
-    assert is_equal(result4, difference(MANAGERS, STUDENTS))
 
     # Errors
     # Exception handling - testing schemas not matching

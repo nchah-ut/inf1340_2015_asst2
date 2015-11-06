@@ -52,8 +52,8 @@ def union(table1, table2):
 
     # 2015-11-06 update: if no common rows, should return nothing
     if len(new_table) < 2:
-        new_table = []
-        # return None  # This is not compatible with the updated test "t1.sort() == t2.sort()"
+        # new_table = []
+        return None
 
     return new_table
 
@@ -88,8 +88,8 @@ def intersection(table1, table2):
 
     # 2015-11-06 update: if no common rows, should return nothing
     if len(new_table) < 2:
-        new_table = []
-        # return None  # This is not compatible with the updated test "t1.sort() == t2.sort()"
+        # new_table = []
+        return None
 
     return new_table
 
@@ -120,8 +120,8 @@ def difference(table1, table2):
 
     # 2015-11-06 update: if no common rows, should return nothing
     if len(new_table) < 2:
-        new_table = []
-        # return None  # This is not compatible with the updated test "t1.sort() == t2.sort()"
+        # new_table = []
+        return None
 
     return new_table
 
